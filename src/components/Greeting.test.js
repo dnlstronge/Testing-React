@@ -8,5 +8,6 @@ test("checks text is present", () => {
     // ...
 
     // assert
-   screen.getByText("Hello world");
+   const helloWorldElement = screen.getByText("Hello world");
+   expect(helloWorldElement).toBeInTheDocument()
 })
