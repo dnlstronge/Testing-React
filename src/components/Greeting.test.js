@@ -38,6 +38,13 @@ describe("Checks greeting component", () => {
         const paraElement = screen.queryByText("good to see you")
         expect(paraElement).toBeNull()
     })
+    test("as above but use different selector", () => {
+        render(<Greeting />)
+        const buttonElement = screen.getByText("Change Text")
+        userEvent.click(buttonElement)
+        const paraElement = screen.queryByText("good to see you")
+        expect(paraElement).toBeNull()
+    })
    
    
 
