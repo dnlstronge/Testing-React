@@ -1,4 +1,4 @@
-import { queryByAttribute, render, screen } from "@testing-library/react"
+import { queryByAttribute, queryByText, render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import Greeting from "./Greeting"
 
@@ -43,6 +43,12 @@ describe("Checks greeting component", () => {
         const buttonElement = screen.getByText("Change Text")
         userEvent.click(buttonElement)
         const paraElement = screen.queryByText("good to see you")
+        expect(paraElement).toBeNull()
+    })
+
+    test("checks second para does not render before click", () => {
+        render(<Greeting />)
+        const paraElement = screen.queryByText("The text has changed")
         expect(paraElement).toBeNull()
     })
    
