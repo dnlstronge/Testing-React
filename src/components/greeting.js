@@ -11,7 +11,6 @@ const Greeting = () => {
     return (
         <div>
             <h2>Hello world</h2>
-           
             {!showText &&
             <Output>good to see you</Output>}
             {showText && 
