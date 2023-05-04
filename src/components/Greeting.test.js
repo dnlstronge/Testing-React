@@ -9,9 +9,19 @@ describe("Checks greeting component", () => {
         // ...
     
         // assert
-       const helloWorldElement = screen.getByText("Hello world");
+       const helloWorldElement = screen.getByText("Hello world", {exact: false});
        expect(helloWorldElement).toBeInTheDocument()
     })
+    
+    test("checks paragraph on state false", () => {
+        render(<Greeting />)
+        const paraElement = screen.getByText("good to see you")
+        expect(paraElement).toBeInTheDocument()
+    })
+
+    test("checks paragraph on state true", () => {})
+   
+   
 
 
 })
