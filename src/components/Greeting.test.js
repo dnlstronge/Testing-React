@@ -30,6 +30,14 @@ describe("Checks greeting component", () => {
         expect(paraElement).toBeInTheDocument()
 
     })
+    test("checks para not present on state true", () => {
+        render(<Greeting/>)
+        const buttonElement = screen.getByRole("button")
+        userEvent.click(buttonElement)
+
+        const paraElement = screen.queryByText("good to see you")
+        expect(paraElement).not.toBeInTheDocument()
+    })
    
    
 
