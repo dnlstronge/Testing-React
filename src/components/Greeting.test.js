@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react"
+import { queryByAttribute, render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import Greeting from "./Greeting"
 
 describe("Checks greeting component", () => {
@@ -19,7 +20,16 @@ describe("Checks greeting component", () => {
         expect(paraElement).toBeInTheDocument()
     })
 
-    test("checks paragraph on state true", () => {})
+    test("checks paragraph on state true", () => {
+        render(<Greeting />)
+        // act
+        const buttonElement = screen.getByRole("button")
+        userEvent.click(buttonElement)
+        // assert
+        const paraElement = screen.getByText("The text has changed")
+        expect(paraElement).toBeInTheDocument()
+
+    })
    
    
 
