@@ -36,7 +36,7 @@ describe("Checks greeting component", () => {
         userEvent.click(buttonElement)
 
         const paraElement = screen.queryByText("good to see you")
-        expect(paraElement).not.toBeInTheDocument()
+        expect(paraElement).toBeNull()
     })
    
    
