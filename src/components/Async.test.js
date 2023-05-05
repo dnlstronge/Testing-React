@@ -11,4 +11,5 @@ describe("Tests async component - fetch", () => {
         const listItemsPresent = await screen.findAllByRole("listitem")
         expect(listItemsPresent).not.toHaveLength(0)
     })
+    
 })
